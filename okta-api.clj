@@ -12,6 +12,7 @@
                :headers      {:authorization (str "SSWS " (okta-config :api-token))}}))
 
 (defn get-token
+  ;requests tokens using the authorization code for the web flow
   [okta-config code]
   (client/post (str "https://" (okta-config :okta-domain) "/oauth2/default/v1/token")
                {:accept       :application/json
